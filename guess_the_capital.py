@@ -63,7 +63,7 @@ def score():
             print("Need to improve")
 
     #print("You answered", total, "questions with" , count "correct")
-    print("Your score is", percentage, "%")
+    #print("Your score is", percentage, "%")
     return result
 
     
