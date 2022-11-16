@@ -37,9 +37,10 @@ total = 0
 def main():
     for i in range(10):
         r = random.choice(list(capitals))
-    print(r)
-
-    user_input = input("What is the capital of: ", r)
+    #print(r)
+    
+    print("What is the capital of: ", r)
+    user_input = input("Enter answer: ")
     if user_input in capitals:
         global count
         count += 1
