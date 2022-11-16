@@ -41,7 +41,7 @@ def main():
     
     print("What is the capital of: ", r)
     user_input = input("Enter answer: ")
-    if user_input in capitals:
+    if user_input in capitals.values(): #if user_input is the value to the random key
         global count
         count += 1
         print("Correct!")
@@ -49,7 +49,8 @@ def main():
     else:
         print("Incorrect.")
 
-#turn above into input
+    
+
 def score():
     if total == 10:
         global result
