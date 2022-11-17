@@ -42,7 +42,8 @@ score = 0
 def guess(r):
     print("What is the capital of: ", r)
     user_input = input("Enter answer: ")
-    if user_input in capitals.items():
+    l = [k for k, v in capitals.items() if v == user_input]
+    if user_input in capitals.items() == capitals.values():
         #if user_input is the value to the random key
         global count
         count += 1
@@ -71,16 +72,17 @@ def score():
 
 def main():
     print("Welcome to Guess the Capital!")
-    
+
     global user_input
     global score
     global total
     global capitals
-    global continueLoop
+    #global continueLoop
 
-    r = random.choice(list(capitals.keys()))  
+     
 
     for i in range(10):
+        r = random.choice(list(capitals.keys())) 
         user_input = guess(r)
         total += 1
 
