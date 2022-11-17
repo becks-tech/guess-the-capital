@@ -29,27 +29,28 @@ capitals = {"France":"Paris",
                 "Belarus":"Minsk",
                 "India":"New Delhi",
                 "Norway":"Oslo"} #26
+rev_capitals = {
+    city: country for country,
+    city in capitals.items()
+}
 
 user_input = 0
 count = 0
 total = 0
+score = 0
 
-def main():
-    for i in range(10):
-        r = random.choice(list(capitals))
-    #print(r)
-    
+def guess(r):
     print("What is the capital of: ", r)
     user_input = input("Enter answer: ")
-    if user_input in capitals.values(): #if user_input is the value to the random key
+    if user_input in capitals.items():
+        #if user_input is the value to the random key
         global count
         count += 1
         print("Correct!")
         return count
     else:
         print("Incorrect.")
-
-    
+    return user_input
 
 def score():
     if total == 10:
@@ -64,15 +65,35 @@ def score():
         else:
             print("Need to improve")
 
-    #print("You answered", total, "questions with" , count "correct")
-    #print("Your score is", percentage, "%")
+    print("You answered", total, "questions with" , count, "correct")
+    print("Your score is", percentage, "%")
     return result
 
+def main():
+    print("Welcome to Guess the Capital!")
     
+    global user_input
+    global score
+    global total
+    global capitals
+    global continueLoop
 
+    r = random.choice(list(capitals.keys()))  
+
+    for i in range(10):
+        user_input = guess(r)
+        total += 1
 
 main()
 
+def continueLoop():
+    continueLoop = "y"
+
+    while continueLoop == "y":
+        main()
+        continueLoop = input("Continue? y/n")
+    else:
+        print("You have chosen to end the quiz. Close program window")
 
 
 executionTime = (time.time() - startTime)
