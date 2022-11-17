@@ -43,7 +43,7 @@ def guess(r):
     print("What is the capital of: ", r)
     user_input = input("Enter answer: ")
     l = [k for k, v in capitals.items() if v == user_input]
-    if user_input in capitals.items() == capitals.values():
+    if user_input in capitals.values() == l:
         #if user_input is the value to the random key
         global count
         count += 1
