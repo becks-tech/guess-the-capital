@@ -42,7 +42,7 @@ def guess(r):
     key_list = list(capitals.keys())
     val_list = list(capitals.values())
     answer = key_list.index(r)
-    
+
     if user_input == val_list[answer]:
         
         global count
@@ -84,7 +84,6 @@ def main():
         total += 1
 
     score()
-
 
 def continueLoop():
     again = "y"
