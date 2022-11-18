@@ -37,13 +37,14 @@ score = 0
 
 def guess(r):
     print("What is the capital of: ", r) 
-    #input needs to compare with the corresponding value of the key it selected
     user_input = input("Enter answer: ")
+
     key_list = list(capitals.keys())
     val_list = list(capitals.values())
     answer = key_list.index(r)
+    
     if user_input == val_list[answer]:
-        #if user_input is the same as the random value not the key it selected
+        
         global count
         count += 1
         print("Correct!")
