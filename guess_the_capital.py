@@ -36,11 +36,14 @@ total = 0
 score = 0
 
 def guess(r):
-    print("What is the capital of: ", r)
+    print("What is the capital of: ", r) 
+    #input needs to compare with the corresponding value of the key it selected
     user_input = input("Enter answer: ")
-    
-    if user_input == r:
-        #if user_input is the value to the random key not the value
+    key_list = list(capitals.keys())
+    val_list = list(capitals.values())
+    answer = key_list.index(r)
+    if user_input == val_list[answer]:
+        #if user_input is the same as the random value not the key it selected
         global count
         count += 1
         print("Correct!")
@@ -73,27 +76,25 @@ def main():
     global score
     global total
     global capitals
-    #global continueLoop
-
      
     for i in range(10):
-        r = random.choice(list(capitals.keys())) 
+        r = random.choice(list(capitals))
         user_input = guess(r)
         total += 1
 
     score()
 
-main()
 
 def continueLoop():
-    continueLoop = "y"
+    again = "y"
 
-    while continueLoop == "y":
+    while again == "y":
         main()
-        continueLoop = input("Continue? y/n")
+        again = input("Continue? y/n")
     else:
         print("You have chosen to end the quiz. Close program window")
 
+continueLoop()
 
 executionTime = (time.time() - startTime)
 print("Time taken in seconds: " + str(format(executionTime, ".2f")))
