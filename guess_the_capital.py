@@ -29,10 +29,6 @@ capitals = {"France":"Paris",
                 "Belarus":"Minsk",
                 "India":"New Delhi",
                 "Norway":"Oslo"} #26
-rev_capitals = {
-    city: country for country,
-    city in capitals.items()
-}
 
 user_input = 0
 count = 0
@@ -42,9 +38,9 @@ score = 0
 def guess(r):
     print("What is the capital of: ", r)
     user_input = input("Enter answer: ")
-    l = [k for k, v in capitals.items() if v == user_input]
-    if user_input in capitals.values() == l:
-        #if user_input is the value to the random key
+    
+    if user_input == r:
+        #if user_input is the value to the random key not the value
         global count
         count += 1
         print("Correct!")
@@ -80,11 +76,12 @@ def main():
     #global continueLoop
 
      
-
     for i in range(10):
         r = random.choice(list(capitals.keys())) 
         user_input = guess(r)
         total += 1
+
+    score()
 
 main()
 
